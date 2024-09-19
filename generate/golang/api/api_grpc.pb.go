@@ -35,13 +35,13 @@ const (
 type ApiV0Client interface {
 	// Пинг.
 	Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*PingResult, error)
-	// Создать что-то.
+	// Создать элемент.
 	CreateItem(ctx context.Context, in *CreateItemParams, opts ...grpc.CallOption) (*CreateItemResult, error)
-	// Получить что-то.
+	// Получить элемент.
 	GetItem(ctx context.Context, in *GetItemParams, opts ...grpc.CallOption) (*GetItemResult, error)
-	// Обновить что-то.
+	// Обновить элемент.
 	UpdateItem(ctx context.Context, in *UpdateItemParams, opts ...grpc.CallOption) (*UpdateItemResult, error)
-	// Удалить что-то.
+	// Удалить элемент.
 	DeleteItem(ctx context.Context, in *DeleteItemParams, opts ...grpc.CallOption) (*emptypb.Empty, error)
 }
 
@@ -111,13 +111,13 @@ func (c *apiV0Client) DeleteItem(ctx context.Context, in *DeleteItemParams, opts
 type ApiV0Server interface {
 	// Пинг.
 	Ping(context.Context, *emptypb.Empty) (*PingResult, error)
-	// Создать что-то.
+	// Создать элемент.
 	CreateItem(context.Context, *CreateItemParams) (*CreateItemResult, error)
-	// Получить что-то.
+	// Получить элемент.
 	GetItem(context.Context, *GetItemParams) (*GetItemResult, error)
-	// Обновить что-то.
+	// Обновить элемент.
 	UpdateItem(context.Context, *UpdateItemParams) (*UpdateItemResult, error)
-	// Удалить что-то.
+	// Удалить элемент.
 	DeleteItem(context.Context, *DeleteItemParams) (*emptypb.Empty, error)
 	mustEmbedUnimplementedApiV0Server()
 }

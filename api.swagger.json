@@ -22,7 +22,7 @@
   "paths": {
     "/v0/item": {
       "post": {
-        "summary": "Создать что-то.",
+        "summary": "Создать элемент.",
         "operationId": "ApiV0_CreateItem",
         "responses": {
           "200": {
@@ -60,7 +60,7 @@
         ]
       },
       "put": {
-        "summary": "Обновить что-то.",
+        "summary": "Обновить элемент.",
         "operationId": "ApiV0_UpdateItem",
         "responses": {
           "200": {
@@ -100,7 +100,7 @@
     },
     "/v0/item/{id}": {
       "get": {
-        "summary": "Получить что-то.",
+        "summary": "Получить элемент.",
         "operationId": "ApiV0_GetItem",
         "responses": {
           "200": {
@@ -126,6 +126,7 @@
         "parameters": [
           {
             "name": "id",
+            "description": "Идентификатор.",
             "in": "path",
             "required": true,
             "type": "string",
@@ -137,7 +138,7 @@
         ]
       },
       "delete": {
-        "summary": "Удалить что-то.",
+        "summary": "Удалить элемент.",
         "operationId": "ApiV0_DeleteItem",
         "responses": {
           "200": {
@@ -163,6 +164,7 @@
         "parameters": [
           {
             "name": "id",
+            "description": "Элемент.",
             "in": "path",
             "required": true,
             "type": "string",
@@ -210,47 +212,53 @@
       "type": "object",
       "properties": {
         "item": {
-          "$ref": "#/definitions/Item"
+          "$ref": "#/definitions/Item",
+          "description": "Элемент."
         }
       },
-      "description": "Параметры создания чего-то."
+      "description": "Параметры создания элемента."
     },
     "CreateItemResult": {
       "type": "object",
       "properties": {
         "item": {
-          "$ref": "#/definitions/Item"
+          "$ref": "#/definitions/Item",
+          "description": "Элемент."
         }
       },
-      "description": "Результат создания чего-то."
+      "description": "Результат создания элемента."
     },
     "GetItemResult": {
       "type": "object",
       "properties": {
         "item": {
-          "$ref": "#/definitions/Item"
+          "$ref": "#/definitions/Item",
+          "description": "Элемент."
         }
       },
-      "description": "Результат получения чего-то."
+      "description": "Результат получения элемента."
     },
     "Item": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string",
-          "format": "int64"
+          "format": "int64",
+          "description": "Идентификатор."
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "Название."
         }
       },
-      "description": "Что-то."
+      "description": "Элемент."
     },
     "PingResult": {
       "type": "object",
       "properties": {
         "message": {
-          "type": "string"
+          "type": "string",
+          "description": "Сообщение."
         }
       },
       "description": "Результат пинга."
@@ -259,19 +267,21 @@
       "type": "object",
       "properties": {
         "item": {
-          "$ref": "#/definitions/Item"
+          "$ref": "#/definitions/Item",
+          "description": "Элемент."
         }
       },
-      "description": "Параметры обновления чего-то."
+      "description": "Параметры обновления элемента."
     },
     "UpdateItemResult": {
       "type": "object",
       "properties": {
         "item": {
-          "$ref": "#/definitions/Item"
+          "$ref": "#/definitions/Item",
+          "description": "Элемент."
         }
       },
-      "description": "Результат обновления чего-то."
+      "description": "Результат обновления элемента."
     },
     "protobufAny": {
       "type": "object",

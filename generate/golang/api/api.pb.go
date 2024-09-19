@@ -29,6 +29,7 @@ type PingResult struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Сообщение.
 	Message string `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
 }
 
@@ -71,13 +72,15 @@ func (x *PingResult) GetMessage() string {
 	return ""
 }
 
-// Что-то.
+// Элемент.
 type Item struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id   int64  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	// Идентификатор.
+	Id int64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	// Название.
 	Name string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 }
 
@@ -127,12 +130,13 @@ func (x *Item) GetName() string {
 	return ""
 }
 
-// Параметры создания чего-то.
+// Параметры создания элемента.
 type CreateItemParams struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Элемент.
 	Item *Item `protobuf:"bytes,1,opt,name=item,proto3" json:"item,omitempty"`
 }
 
@@ -175,12 +179,13 @@ func (x *CreateItemParams) GetItem() *Item {
 	return nil
 }
 
-// Результат создания чего-то.
+// Результат создания элемента.
 type CreateItemResult struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Элемент.
 	Item *Item `protobuf:"bytes,1,opt,name=item,proto3" json:"item,omitempty"`
 }
 
@@ -223,12 +228,13 @@ func (x *CreateItemResult) GetItem() *Item {
 	return nil
 }
 
-// Параметры получения чего-то.
+// Параметры получения элемента.
 type GetItemParams struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Идентификатор.
 	Id int64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
@@ -271,12 +277,13 @@ func (x *GetItemParams) GetId() int64 {
 	return 0
 }
 
-// Результат получения чего-то.
+// Результат получения элемента.
 type GetItemResult struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Элемент.
 	Item *Item `protobuf:"bytes,1,opt,name=item,proto3" json:"item,omitempty"`
 }
 
@@ -319,12 +326,13 @@ func (x *GetItemResult) GetItem() *Item {
 	return nil
 }
 
-// Параметры обновления чего-то.
+// Параметры обновления элемента.
 type UpdateItemParams struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Элемент.
 	Item *Item `protobuf:"bytes,1,opt,name=item,proto3" json:"item,omitempty"`
 }
 
@@ -367,12 +375,13 @@ func (x *UpdateItemParams) GetItem() *Item {
 	return nil
 }
 
-// Результат обновления чего-то.
+// Результат обновления элемента.
 type UpdateItemResult struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Элемент.
 	Item *Item `protobuf:"bytes,1,opt,name=item,proto3" json:"item,omitempty"`
 }
 
@@ -415,12 +424,13 @@ func (x *UpdateItemResult) GetItem() *Item {
 	return nil
 }
 
-// Параметры удаления чего-то.
+// Параметры удаления элемента.
 type DeleteItemParams struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
+	// Элемент.
 	Id int64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 

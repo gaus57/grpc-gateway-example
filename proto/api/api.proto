@@ -8,47 +8,57 @@ import "protoc-gen-swagger/options/annotations.proto";
 
 // Результат пинга.
 message PingResult {
+    // Сообщение.
     string message = 1;
 }
 
-// Что-то.
+// Элемент.
 message Item {
+    // Идентификатор.
     int64 id = 1;
+    // Название.
     string name = 2;
 }
 
-// Параметры создания чего-то.
+// Параметры создания элемента.
 message CreateItemParams {
+    // Элемент.
     Item item = 1;
 }
 
-// Результат создания чего-то.
+// Результат создания элемента.
 message CreateItemResult {
+    // Элемент.
     Item item = 1;
 }
 
-// Параметры получения чего-то.
+// Параметры получения элемента.
 message GetItemParams {
+    // Идентификатор.
     int64 id = 1;
 }
 
-// Результат получения чего-то.
+// Результат получения элемента.
 message GetItemResult {
+    // Элемент.
     Item item = 1;
 }
 
-// Параметры обновления чего-то.
+// Параметры обновления элемента.
 message UpdateItemParams {
+    // Элемент.
     Item item = 1;
 }
 
-// Результат обновления чего-то.
+// Результат обновления элемента.
 message UpdateItemResult {
+    // Элемент.
     Item item = 1;
 }
 
-// Параметры удаления чего-то.
+// Параметры удаления элемента.
 message DeleteItemParams {
+    // Элемент.
     int64 id = 1;
 }
 
@@ -61,7 +71,7 @@ service ApiV0 {
         };
     }
 
-    // Создать что-то.
+    // Создать элемент.
     rpc CreateItem(CreateItemParams) returns (CreateItemResult) {
         option (google.api.http) = {
             post: "/v0/item",
@@ -69,14 +79,14 @@ service ApiV0 {
         };
     }
 
-    // Получить что-то.
+    // Получить элемент.
     rpc GetItem(GetItemParams) returns (GetItemResult) {
         option (google.api.http) = {
             get: "/v0/item/{id}"
         };
     }
 
-    // Обновить что-то.
+    // Обновить элемент.
     rpc UpdateItem(UpdateItemParams) returns (UpdateItemResult) {
         option (google.api.http) = {
             put: "/v0/item",
@@ -84,7 +94,7 @@ service ApiV0 {
         };
     }
 
-    // Удалить что-то.
+    // Удалить элемент.
     rpc DeleteItem(DeleteItemParams) returns (google.protobuf.Empty) {
         option (google.api.http) = {
             delete: "/v0/item/{id}"

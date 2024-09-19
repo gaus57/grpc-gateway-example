@@ -8,6 +8,7 @@ generate:
 	--grpc-gateway_out=./generate/golang --grpc-gateway_opt paths=source_relative \
 	--grpc-gateway_opt generate_unbound_methods=true \
 	--swagger_out=allow_merge=true,merge_file_name=api:. \
+	--grpc-gateway-ts_out=./generate/ts \
 	./proto/*/*.proto
 
 dependencies:
