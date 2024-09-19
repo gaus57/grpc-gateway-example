@@ -1,0 +1,119 @@
+syntax = "proto3";
+
+option go_package = "github.com/gaus57/grpc-gateway/generate-go/api";
+
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+import "protoc-gen-swagger/options/annotations.proto";
+
+// Результат пинга.
+message PingResult {
+    string message = 1;
+}
+
+// Что-то.
+message Item {
+    int64 id = 1;
+    string name = 2;
+}
+
+// Параметры создания чего-то.
+message CreateItemParams {
+    Item item = 1;
+}
+
+// Результат создания чего-то.
+message CreateItemResult {
+    Item item = 1;
+}
+
+// Параметры получения чего-то.
+message GetItemParams {
+    int64 id = 1;
+}
+
+// Результат получения чего-то.
+message GetItemResult {
+    Item item = 1;
+}
+
+// Параметры обновления чего-то.
+message UpdateItemParams {
+    Item item = 1;
+}
+
+// Результат обновления чего-то.
+message UpdateItemResult {
+    Item item = 1;
+}
+
+// Параметры удаления чего-то.
+message DeleteItemParams {
+    int64 id = 1;
+}
+
+// Апи v0.
+service ApiV0 {
+    // Пинг.
+    rpc Ping(google.protobuf.Empty) returns (PingResult) {
+        option (google.api.http) = {
+            get: "/v0/ping"
+        };
+    }
+
+    // Создать что-то.
+    rpc CreateItem(CreateItemParams) returns (CreateItemResult) {
+        option (google.api.http) = {
+            post: "/v0/item",
+            body: "*"
+        };
+    }
+
+    // Получить что-то.
+    rpc GetItem(GetItemParams) returns (GetItemResult) {
+        option (google.api.http) = {
+            get: "/v0/item/{id}"
+        };
+    }
+
+    // Обновить что-то.
+    rpc UpdateItem(UpdateItemParams) returns (UpdateItemResult) {
+        option (google.api.http) = {
+            put: "/v0/item",
+            body: "*"
+        };
+    }
+
+    // Удалить что-то.
+    rpc DeleteItem(DeleteItemParams) returns (google.protobuf.Empty) {
+        option (google.api.http) = {
+            delete: "/v0/item/{id}"
+        };
+    }
+}
+
+option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
+    info: {
+        title: "Пример grpc-gateway сервиса"
+        version: "1.0"
+        contact: {
+            name: "Кузнецов Олег"
+            url: "https://github.com/gaus57"
+            email: "gaus_oleg@mail.ru"
+        };
+    };
+    schemes: [HTTP,HTTPS]
+    consumes: "application/json"
+    produces: "application/json"
+    responses: {
+        key: "404"
+        value: {
+            description: "Возвращается когда результат отсутсвует."
+            schema: {
+                json_schema: {
+                    type: STRING
+                };
+            };
+        };
+    };
+};
